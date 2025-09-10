@@ -144,8 +144,8 @@
             <ul class="nav-menu">
                 <li><a href="#" onclick="showMaintenance()">Laman</a></li>
                 <li><a href="#" onclick="showMaintenance()">Info Keamanan</a></li>
-                <li><a href="#" onclick="showMaintenance()">Aduan Siber</a></li>
-                <li><a href="#" onclick="showMaintenance()">Kontak</a></li>
+                <li><a href="https://s.id/sandikabsmg" class="btn" target="_blank">Aduan Siber</a></li>
+                <li><a href="#" onclick="showKontak()">Kontak</a></li>
             </ul>
         </nav>
     </header>
@@ -168,6 +168,14 @@
             Swal.fire({
                 title: 'Mohon Maaf!',
                 text: 'Laman ini sedang dalam perbaikan. Mohon coba lagi nanti.',
+                icon: 'info',
+                confirmButtonText: 'Tutup'
+            });
+        }
+        function showKontak() {
+            Swal.fire({
+                title: 'Aduan Siber',
+                text: 'CSIRT Kabupaten Semarang Telp. (024) 76901553 email : csirt@semarangkab.go.id',
                 icon: 'info',
                 confirmButtonText: 'Tutup'
             });
