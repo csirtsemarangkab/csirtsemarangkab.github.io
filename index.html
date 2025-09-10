@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SemarangKab-CSIRT</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #0d47a1;
@@ -26,6 +26,7 @@
             line-height: 1.6;
         }
 
+        /* --- Header and Navigation --- */
         .header {
             background-color: rgba(0, 0, 0, 0.5);
             padding: 1rem 5%;
@@ -37,18 +38,14 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
         }
 
-        .header .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-color);
-            text-decoration: none;
+        .header.scrolled {
+            background-color: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(5px);
         }
-        
+
         .header .logo img {
             height: 60px;
             margin-right: 10px;
@@ -58,11 +55,18 @@
             list-style: none;
             display: flex;
             gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu li {
+            position: relative; /* Diperlukan untuk posisi dropdown */
         }
 
         .nav-menu a {
             color: var(--text-color);
             text-decoration: none;
+            padding: 0.5rem 0;
+            font-weight: 600;
             transition: color 0.3s ease;
         }
 
@@ -70,6 +74,49 @@
             color: var(--secondary-color);
         }
 
+        /* --- Dropdown Submenu Styling --- */
+        .submenu {
+            display: none; /* Disembunyikan secara default */
+            position: absolute;
+            top: 100%; /* Posisi tepat di bawah item menu */
+            left: 0;
+            background-color: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(5px);
+            min-width: 250px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+            z-index: 1;
+            list-style: none;
+            padding: 0.5rem 0;
+            border-radius: 8px;
+            margin-top: 10px; /* Jarak dari menu utama */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        }
+
+        .submenu li a {
+            color: var(--text-color);
+            padding: 10px 20px;
+            display: block;
+            white-space: nowrap;
+            font-weight: 400;
+        }
+
+        .submenu li a:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        /* Tampilkan submenu saat parent-nya di-hover */
+        .nav-menu li:hover > .submenu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* --- Hero Section --- */
         .hero-section {
             height: 100vh;
             display: flex;
@@ -103,7 +150,7 @@
 
         .hero-content h1 {
             font-size: 3.5rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
@@ -114,49 +161,62 @@
         }
 
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background-color: var(--primary-color);
             color: var(--text-color);
             padding: 0.75rem 2rem;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             font-weight: 600;
         }
 
         .btn:hover {
             background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            /* Note: A hamburger menu would be needed for full mobile support */
+            .nav-menu {
+                /* In a real scenario, this would be hidden and toggled by a button */
+                gap: 1rem;
+                flex-wrap: wrap; /* Simple wrap for now */
+            }
         }
 
-        .btn svg {
-            vertical-align: middle;
-            margin-left: 0.5rem;
-        }
     </style>
 </head>
 <body>
 
-    <header class="header">
+    <header class="header" id="header">
         <div class="logo">
-            <img src="https://raw.githubusercontent.com/csirtsemarangkab/csirtsemarangkab.github.io/main/logo.png" alt="Logo SemarangKab CSIRT">
+            <a href="#">
+                <img src="https://raw.githubusercontent.com/csirtsemarangkab/csirtsemarangkab.github.io/main/logo.png" alt="Logo SemarangKab CSIRT">
+            </a>
         </div>
         <nav>
             <ul class="nav-menu">
                 <li><a href="#" onclick="showMaintenance()">Laman</a></li>
-                <li><a href="https://www.instagram.com/semarangkabcsirt" >@Info Keamanan</a></li>
+                <li><a href="https://www.instagram.com/semarangkabcsirt" target="_blank">@Info Keamanan</a></li>
                 <li class="dropdown">
                     <a href="#">Dokumen</a>
                     <ul class="submenu">
-                    <li><a href="# target="_blank">Panduan Pelaporan Insiden</a></li>
-                    <li><a href="#">Panduan Penanganan Insiden Phising</a></li>
-                    <li><a href="#">Panduan Penanganan Insiden Malware</a></li>
-                    <li><a href="#">Panduan Penanganan Insiden Ransomware</a></li>
-                    <li><a href="#">Panduan Penanganan Serangan DDOS</a></li>
-                    <li><a href="#">Panduan Penanganan Serangan Phishing</a></li>
-                    <li><a href="#">Panduan Penanganan Serangan SQL Injection</a></li>
+                        <li><a href="#" onclick="showMaintenance()">Panduan Pelaporan Insiden</a></li>
+                        <li><a href="#" onclick="showMaintenance()">Panduan Penanganan Phising</a></li>
+                        <li><a href="#" onclick="showMaintenance()">Panduan Penanganan Malware</a></li>
+                        <li><a href="#" onclick="showMaintenance()">Panduan Penanganan Ransomware</a></li>
+                        <li><a href="#" onclick="showMaintenance()">Panduan Penanganan Serangan DDOS</a></li>
+                        <li><a href="#" onclick="showMaintenance()">Panduan Penanganan SQL Injection</a></li>
                     </ul>
                 </li>
-                <li><a href="https://csirt.semarangkab.go.id/rfc/Dokumen RFC2350 CSIRT Kab Semarang.pdf" >RFC</a></li>
+                <li><a href="https://csirt.semarangkab.go.id/rfc/Dokumen%20RFC2350%20CSIRT%20Kab%20Semarang.pdf" target="_blank">RFC 2350</a></li>
                 <li><a href="https://s.id/sandikabsmg" target="_blank">Aduan Siber</a></li>
                 <li><a href="#" onclick="showKontak()">Kontak</a></li>
             </ul>
@@ -170,17 +230,19 @@
                 <p>Computer Security Incident Response Team<br>Kabupaten Semarang</p>
                 <a href="https://s.id/sandikabsmg" class="btn" target="_blank">
                     Lapor Insiden
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
             </div>
         </section>
     </main>
+    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        // --- Show alerts for maintenance and contact ---
         function showMaintenance() {
             Swal.fire({
                 title: 'Mohon Maaf!',
-                text: 'Laman ini sedang dalam perbaikan. Mohon coba lagi nanti.',
+                text: 'Laman ini sedang dalam pengembangan. Mohon coba lagi nanti.',
                 icon: 'info',
                 confirmButtonText: 'Tutup'
             });
@@ -188,11 +250,21 @@
         function showKontak() {
             Swal.fire({
                 title: 'Kontak Aduan Siber',
-                text: 'CSIRT Kabupaten Semarang Telp. (024) 76901553 email : csirt@semarangkab.go.id',
+                html: 'CSIRT Kabupaten Semarang<br>Telp. (024) 76901553<br>email: csirt@semarangkab.go.id',
                 icon: 'info',
                 confirmButtonText: 'Tutup'
             });
         }
+
+        // --- Header scroll effect ---
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
     </script>
 </body>
 </html>
