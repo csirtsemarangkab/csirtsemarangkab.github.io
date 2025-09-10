@@ -58,20 +58,26 @@ Cukup klik dua kali file index.html, atau buka melalui browser seperti Chrome, F
 Halaman ini dihosting menggunakan GitHub Pages.
 🔗 https://csirtsemarangkab.github.io
 
+---
+
 ## 🛠️ Teknologi yang Digunakan
 HTML5, CSS3, dan JavaScript (Vanilla)
 Google Fonts - Poppins
 SweetAlert2 - Notifikasi interaktif
 GitHub Pages - Untuk hosting halaman statis
 
-🔒 Keamanan & Privasi
+---
+
+## 🔒 Keamanan & Privasi
 Semua laporan insiden melalui tombol "Lapor Insiden" akan diarahkan ke formulir eksternal resmi.
 Data yang Anda kirim akan diproses sesuai kebijakan privasi CSIRT Kabupaten Semarang.
 
-👥 Kredit
+---
+
+## 👥 Kredit
 👨‍💻 Tim CSIRT - Kabupaten Semarang
 
-🎉 Terima kasih kepada pengguna dan kontributor open-source
+---
 
-📄 Lisensi
+## 📄 Lisensi
 © 2025 SemarangKab-CSIRT
