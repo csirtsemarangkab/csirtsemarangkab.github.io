@@ -50,12 +50,15 @@ Copy code
 cd csirtsemarangkab.github.io
 Buka file index.html di browser favorit Anda
 Cukup klik dua kali file index.html, atau buka melalui browser seperti Chrome, Firefox, atau Edge.
+```
 
-🌐 Link Produksi (Live)
+---
+
+## 🌐 Link Produksi (Live)
 Halaman ini dihosting menggunakan GitHub Pages.
 🔗 https://csirtsemarangkab.github.io
 
-🛠️ Teknologi yang Digunakan
+## 🛠️ Teknologi yang Digunakan
 HTML5, CSS3, dan JavaScript (Vanilla)
 Google Fonts - Poppins
 SweetAlert2 - Notifikasi interaktif
