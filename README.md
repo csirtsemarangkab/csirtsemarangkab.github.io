@@ -1,4 +1,4 @@
-# 🌐 SemarangKab-CSIRT Landing Page
+# 🌐 SemarangKab-CSIRT
 
 Selamat datang di halaman web resmi **SemarangKab-CSIRT**  
 (Computer Security Incident Response Team Kabupaten Semarang).
